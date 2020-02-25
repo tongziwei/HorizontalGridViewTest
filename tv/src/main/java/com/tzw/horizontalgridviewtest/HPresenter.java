@@ -26,12 +26,26 @@ public class HPresenter extends Presenter {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Object o) {
         if (o instanceof Integer){
-            ((TextView)viewHolder.view.findViewById(R.id.tv_index)).setText(o.toString());
+            final TextView textView = ((TextView)viewHolder.view.findViewById(R.id.tv_index));
+            textView.setText(o.toString());
+
+            textView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    textView.animate().scaleX(1.2f).scaleY(1.2f).setDuration(300).start();
+                }else {
+                    textView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).start();
+                }
+            }
+           });
         }
     }
     @Override
     public void onUnbindViewHolder(ViewHolder viewHolder) {
         //解绑时释放资源
     }
+
+
 
 }

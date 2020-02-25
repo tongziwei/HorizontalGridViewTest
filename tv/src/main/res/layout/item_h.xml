@@ -6,7 +6,8 @@
         android:id="@+id/tv_index"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#D81B60"
-        android:gravity="center"/>
+        android:background="@drawable/text_view_selector"
+        android:gravity="center"
+        android:focusable="true"/>
 
 </LinearLayout>
